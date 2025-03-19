@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="AppMovil1260061.Views.vMenuPrincipal"
+            NavigationPage.HasNavigationBar="False"
+            SelectedTabColor="red"
+            BackgroundColor="red"
+            BarBackgroundColor="Black"
+            BarTextColor="White"
+            >
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Perfil"
+                 IconImageSource="https://i.postimg.cc/8PY4BSBD/user.png">
+        <ContentPage.Background>
+            <LinearGradientBrush StartPoint="0,0"
+                                 EndPoint="0,1">
+                <GradientStop Color="#00265A"
+                              Offset="0.0" />
+                <GradientStop Color="#003F8F"
+                              Offset="0.5" />
+                <GradientStop Color="#0072CE"
+                              Offset="1.0" />
+            </LinearGradientBrush>
+        </ContentPage.Background>
+        <StackLayout HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="CenterAndExpand"
+                     Padding="20">
+            <!-- Imagen y Nombre -->
+            <Frame BackgroundColor="Transparent"
+                   VerticalOptions="CenterAndExpand"
+                   HasShadow="False"
+                   Margin="0,10,0,0"
+                   Padding="0">
+                <StackLayout HorizontalOptions="Center">
+                    <Image Source="https://i.postimg.cc/RF3wXP78/hd-man-user-illustration-icon-transparent-png-701751694974843ybexneueic-removebg-preview.png"
+                           Aspect="AspectFit"
+                           HeightRequest="220"
+                           WidthRequest="220"
+                           HorizontalOptions="Center" />
+                    <Label Text="{Binding LblNombreCompleto}"
+                           FontSize="25"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           TextColor="WhiteSmoke"
+                           Margin="0,10,0,5" />
+                </StackLayout>
+            </Frame>
+            <!-- Datos del Usuario -->
+            <Frame CornerRadius="20"
+                   Padding="30"
+                   HasShadow="True"
+                   BorderColor="#35FFFFFF"
+                   Margin="0,10,0,0"
+                   HorizontalOptions="Center">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="1,1">
+                        <!-- Inicio con un blanco translúcido -->
+                        <GradientStop Color="#12FFFFFF"
+                                      Offset="0.0" />
+                        <!-- A 10% del recorrido, más transparente -->
+                        <GradientStop Color="#45FFFFFF"
+                                      Offset="0.2" />
+                        <!-- Resto del fondo, completamente transparente -->
+                        <GradientStop Color="#19FFFFFF"
+                                      Offset="1.5" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout>
+                    <Grid ColumnDefinitions="Auto, *"
+                          RowDefinitions="Auto, Auto, Auto, Auto"
+                          RowSpacing="12">
+                        <!-- Nombre Completo -->
+                        <Image Source="https://i.postimg.cc/8PY4BSBD/user.png"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start" />
+                        <Label Text="{Binding LblNombreCompleto}"
+                               TextColor="Black"
+                               FontSize="18"
+                               HeightRequest="40"
+                               VerticalTextAlignment="Center"
+                               Margin="15,5,0,5"
+                               Grid.Row="0"
+                               Grid.Column="1" />
+                        <!-- Teléfono -->
+                        <Image Source="https://i.postimg.cc/PfWCTs5y/phone.png"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start" />
+                        <Label Text="{Binding LblTelefono}"
+                               TextColor="Black"
+                               FontSize="18"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center"
+                               Margin="15,5,0,5"
+                               Grid.Row="1"
+                               Grid.Column="1" />
+                        <!-- Email -->
+                        <Image Source="https://i.postimg.cc/WzwznrHC/mail.png"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start" />
+                        <Label Text="{Binding LblEmail}"
+                               TextColor="Black"
+                               FontSize="18"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center"
+                               Margin="15,5,0,5"
+                               Grid.Row="2"
+                               Grid.Column="1" />
+                        <!-- Username -->
+                        <Image Source="https://i.postimg.cc/8PY4BSBD/user.png"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start" />
+                        <Label Text="{Binding LblUserName}"
+                               TextColor="Black"
+                               FontSize="18"
+                               HeightRequest="40"
+                               VerticalOptions="Center"
+                               VerticalTextAlignment="Center"
+                               Margin="15,5,0,5"
+                               Grid.Row="3"
+                               Grid.Column="1" />
+                    </Grid>
+                    <!-- Botones -->
+                    <Grid ColumnDefinitions="*,*"
+                          Margin="0,20,0,0">
+                        <Button Text="EDIT"
+                                BackgroundColor="#004B93"
+                                TextColor="White"
+                                CornerRadius="20"
+                                HeightRequest="45"
+                                HorizontalOptions="FillAndExpand"
+                                Grid.Column="0" />
+                        <Button Text="LOG OUT"
+                                BackgroundColor="#ED1D23"
+                                TextColor="White"
+                                CornerRadius="20"
+                                HeightRequest="45"
+                                HorizontalOptions="FillAndExpand"
+                                Grid.Column="1"
+                                Clicked="Button_Clicked" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage>
+    
+    <ContentPage Title="Productos"
+                 IconImageSource="https://i.postimg.cc/wTMFmvN0/building-store.png"
+                 BackgroundColor="Wheat">
+        <StackLayout>
+            <Frame Margin="10,50,10,10"
+                   BackgroundColor="Transparent"
+                   CornerRadius="20"
+                   BorderColor="Black"
+                   HasShadow="True"
+                   VerticalOptions="StartAndExpand"
+                   HeightRequest="30"
+                   Padding="15">
+                <Image Source="https://i.postimg.cc/NfZFCtM1/search.png"
+                       HorizontalOptions="EndAndExpand"></Image>
+            </Frame>
+            <CollectionView ItemsSource="{Binding Listaproductos}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="1" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10"
+                               Margin="0,0,0,10"
+                               BackgroundColor="Orange">
+                            <StackLayout Margin="0,0,0,10">
+                                <Grid ColumnDefinitions="10"
+                                      RowDefinitions="50">
+                                    <Image Source="{Binding Icono}"
+                                           Aspect="AspectFill"
+                                           HeightRequest="100"
+                                           WidthRequest="100"
+                                           HorizontalOptions="CenterAndExpand"
+                                           VerticalOptions="CenterAndExpand"></Image>
+                                    <StackLayout Grid.Column="1">
+                                        <Label FontSize="20"
+                                               TextColor="Black"
+                                               FontAttributes="Bold"
+                                               Text="{Binding nombre}"></Label>
+                                        <Label FontSize="13"
+                                               TextColor="Black"
+                                               Text="{Binding precio}"></Label>
+                                        <Label FontSize="13"
+                                               TextColor="Black"
+                                               Text="{Binding stock}"></Label>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <StackLayout>
+                <ImageButton Source="https://i.postimg.cc/cHfrwbZQ/7245845.png"
+                             HorizontalOptions="CenterAndExpand"
+                             CornerRadius="20"
+                             Aspect="AspectFit"
+                             HeightRequest="90"
+                             Margin="0,0,0,0"
+                             BackgroundColor="Red"
+                             Clicked="Button_Clicked_1" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Ventas"
+                 IconImageSource="https://i.postimg.cc/SRTrP0B6/report-analytics.png"></ContentPage>
+    <ContentPage IconImageSource="https://i.postimg.cc/7Pmmh755/brand-visa.png"
+                 Title="Pagos" />
+    <ContentPage IconImageSource="https://i.postimg.cc/J04xK727/users.png"
+                 Title="Clientes" />
+</TabbedPage> 

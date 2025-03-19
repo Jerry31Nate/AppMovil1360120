@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovil1260061.Views.vRecuperar"
+             BackgroundColor="#1C76D2" NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+        <Image Source="https://www.wolfram.com/language/img/overview/wolf-logo.png"
+       HeightRequest="250" Margin="0,50,0,0"></Image>
+        <Frame CornerRadius="30" HeightRequest="480" Margin="0,20,0,0">
+            <StackLayout>
+                <Label Text="Recuperar Cuenta" TextColor="#001C38" FontSize="35"
+                       FontAttributes="Bold" VerticalOptions="Center" Margin="40,20,0,30"></Label>
+                <Entry Placeholder="Ingrese correo" Margin="0,10,0,30" Keyboard="Email"
+                       Text="{Binding TxtEmail}"></Entry>
+                <Button Text="Enviar" BackgroundColor="#001C38" CornerRadius="10"
+                        TextColor="White" FontSize="25" Clicked="Button_Clicked"
+                        Command="{Binding ResetPassword}"></Button>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+ 
+</ContentPage>
