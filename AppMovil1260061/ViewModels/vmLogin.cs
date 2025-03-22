@@ -48,7 +48,7 @@ namespace AppMovil1260061.ViewModels
         {
             try
             {
-                UserDialogs.Instance.ShowLoading("Instalando Virus");
+                UserDialogs.Instance.ShowLoading("Signing in...");
                 var authProvider = new FirebaseAuthProvider(new FirebaseConfig(ConexionFirebase.Apykey));
                 var auth = await authProvider.SignInWithEmailAndPasswordAsync(TxtEmail, TxtPassword);
                 var token = JsonConvert.SerializeObject(auth);

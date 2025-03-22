@@ -15,7 +15,7 @@
         </LinearGradientBrush>
     </ContentPage.Background>
     <StackLayout VerticalOptions="CenterAndExpand">
-        <Frame Margin="20"
+        <Frame Margin="20,60,20,0"
                CornerRadius="20"
                BorderColor="#35FFFFFF">
             <Frame.Background>
@@ -33,9 +33,9 @@
                 </LinearGradientBrush>
             </Frame.Background>
             <StackLayout Spacing="10">
-                <Image Source="https://i.postimg.cc/kgYhCny6/pepsi-new-2023-logo-png-seeklogo-478103.png"
-                       HeightRequest="200"
-                       WidthRequest="160"
+                <Image Source="https://i.postimg.cc/tg2cvj8D/621f8ba5654abf384c30d624.png"
+                       HeightRequest="130"
+                       WidthRequest="130"
                        Margin="0,40,0,10"></Image>
                 <Label Text="Register"
                        FontSize="50"
@@ -45,7 +45,7 @@
                        Margin="0,0,0,20"></Label>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/6682/6682701.png"></Image>
+                    <Image Source="label.png"></Image>
                     <Entry Placeholder="Enter Name"
                            PlaceholderColor="WhiteSmoke"
                            TextColor="White"
@@ -54,7 +54,7 @@
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/527/527489.png"></Image>
+                    <Image Source="https://i.postimg.cc/8PY4BSBD/user.png"></Image>
                     <Entry Placeholder="Enter UserName"
                            PlaceholderColor="WhiteSmoke"
                            TextColor="white"
@@ -63,7 +63,7 @@
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://images.vexels.com/media/users/3/205069/isolated/preview/f207045d96c258fed664305f0ac2c5bd-icono-de-auricular-de-telefono-azul.png"></Image>
+                    <Image Source="devicemobile.png"></Image>
                     <Entry Placeholder="Enter Phone"
                            PlaceholderColor="WhiteSmoke"
                            TextColor="White"
@@ -74,7 +74,7 @@
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/8344/8344917.png"></Image>
+                    <Image Source="photoscan.png"></Image>
                     <Entry Placeholder="Enter Url Image"
                            PlaceholderColor="WhiteSmoke"
                            TextColor="White"
@@ -83,7 +83,7 @@
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454731_640.png"></Image>
+                    <Image Source="mail.png"></Image>
                     <Entry Placeholder="Enter E-mail"
                            PlaceholderColor="WhiteSmoke"
                            TextColor="White"
@@ -93,7 +93,7 @@
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,10">
-                    <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Password.svg/1024px-Password.svg.png"></Image>
+                    <Image Source="brandsamsungpass.png"></Image>
                     <Entry Placeholder="Enter Password"
                            PlaceholderColor="WhiteSmoke"
                            TextColor="White"
@@ -107,8 +107,8 @@
                       RowDefinitions="*"
                       ColumnSpacing="15">
                     <Button Text="Register"
-                            BackgroundColor="#2E3292"
-                            TextColor="White"
+                            BackgroundColor="White"
+                            TextColor="Black"
                             CornerRadius="20"
                             FontSize="16"
                             FontAttributes="Bold"
@@ -119,7 +119,7 @@
                     <Button Text="SIGN IN"
                             Grid.Column="1"
                             Grid.Row="0"
-                            BackgroundColor="#ED1D23"
+                            BackgroundColor="#001C38"
                             TextColor="White"
                             CornerRadius="20"
                             FontSize="16"

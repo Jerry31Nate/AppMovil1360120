@@ -44,7 +44,7 @@
                    Margin="0,0,10,0" />
             <!-- Logo Pepsi alineado a la derecha -->
             <Image Grid.Column="1"
-                   Source="https://i.postimg.cc/kgYhCny6/pepsi-new-2023-logo-png-seeklogo-478103.png"
+                   Source="https://i.postimg.cc/tg2cvj8D/621f8ba5654abf384c30d624.png"
                    WidthRequest="200"
                    HeightRequest="200"
                    Aspect="AspectFit"

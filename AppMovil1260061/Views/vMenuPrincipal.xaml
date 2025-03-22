@@ -3,25 +3,15 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="AppMovil1260061.Views.vMenuPrincipal"
             NavigationPage.HasNavigationBar="False"
-            SelectedTabColor="red"
-            BackgroundColor="red"
-            BarBackgroundColor="Black"
-            BarTextColor="White"
+            SelectedTabColor="#007FFF"
+            BackgroundColor="#F8F8FF"
+            BarBackgroundColor="White"
+            BarTextColor="Black"
             >
     <!--Pages can be added as references or inline-->
     <ContentPage Title="Perfil"
                  IconImageSource="https://i.postimg.cc/8PY4BSBD/user.png">
-        <ContentPage.Background>
-            <LinearGradientBrush StartPoint="0,0"
-                                 EndPoint="0,1">
-                <GradientStop Color="#00265A"
-                              Offset="0.0" />
-                <GradientStop Color="#003F8F"
-                              Offset="0.5" />
-                <GradientStop Color="#0072CE"
-                              Offset="1.0" />
-            </LinearGradientBrush>
-        </ContentPage.Background>
+        
         <StackLayout HorizontalOptions="CenterAndExpand"
                      VerticalOptions="CenterAndExpand"
                      Padding="20">
@@ -41,7 +31,7 @@
                            FontSize="25"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center"
-                           TextColor="WhiteSmoke"
+                           TextColor="Black"
                            Margin="0,10,0,5" />
                 </StackLayout>
             </Frame>
@@ -49,29 +39,16 @@
             <Frame CornerRadius="20"
                    Padding="30"
                    HasShadow="True"
-                   BorderColor="#35FFFFFF"
-                   Margin="0,10,0,0"
+                   BackgroundColor="#F2F7FC"
+                   Margin="0,30,0,0"
                    HorizontalOptions="Center">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0"
-                                         EndPoint="1,1">
-                        <!-- Inicio con un blanco translúcido -->
-                        <GradientStop Color="#12FFFFFF"
-                                      Offset="0.0" />
-                        <!-- A 10% del recorrido, más transparente -->
-                        <GradientStop Color="#45FFFFFF"
-                                      Offset="0.2" />
-                        <!-- Resto del fondo, completamente transparente -->
-                        <GradientStop Color="#19FFFFFF"
-                                      Offset="1.5" />
-                    </LinearGradientBrush>
-                </Frame.Background>
+                
                 <StackLayout>
                     <Grid ColumnDefinitions="Auto, *"
                           RowDefinitions="Auto, Auto, Auto, Auto"
                           RowSpacing="12">
                         <!-- Nombre Completo -->
-                        <Image Source="https://i.postimg.cc/8PY4BSBD/user.png"
+                        <Image Source="label.png"
                                Grid.Row="0"
                                Grid.Column="0"
                                WidthRequest="40"
@@ -161,32 +138,42 @@
             </Frame>
         </StackLayout>
     </ContentPage>
-    
     <ContentPage Title="Productos"
-                 IconImageSource="https://i.postimg.cc/wTMFmvN0/building-store.png"
-                 BackgroundColor="Wheat">
-        <StackLayout>
-            <Frame Margin="10,50,10,10"
-                   BackgroundColor="Transparent"
+                 IconImageSource="https://i.postimg.cc/wTMFmvN0/building-store.png">
+      
+        <!-- Replace the main StackLayout with a Grid -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!-- Search Frame at the top -->
+            <Frame Grid.Row="0"
+                   Margin="10,50,10,10"
                    CornerRadius="20"
-                   BorderColor="Black"
+                   BorderColor="Black"  
                    HasShadow="True"
-                   VerticalOptions="StartAndExpand"
                    HeightRequest="30"
-                   Padding="15">
+                   Padding="10">
                 <Image Source="https://i.postimg.cc/NfZFCtM1/search.png"
-                       HorizontalOptions="EndAndExpand"></Image>
+                       HorizontalOptions="EndAndExpand" />
             </Frame>
-            <CollectionView ItemsSource="{Binding Listaproductos}">
+            <!-- CollectionView for products -->
+            <CollectionView Grid.Row="1"
+                            ItemsSource="{Binding Listaproductos}"
+                            Margin="10">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
-                                     Span="1" />
+                                     Span="1"
+                                     VerticalItemSpacing="5" />
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame CornerRadius="10"
+                        <Frame CornerRadius="20"
                                Margin="0,0,0,10"
-                               BackgroundColor="Orange">
+                               BackgroundColor="#E6EEF6"
+                               Padding="25">
+                            
                             <StackLayout Margin="0,0,0,10">
                                 <Grid ColumnDefinitions="10"
                                       RowDefinitions="50">
@@ -195,18 +182,18 @@
                                            HeightRequest="100"
                                            WidthRequest="100"
                                            HorizontalOptions="CenterAndExpand"
-                                           VerticalOptions="CenterAndExpand"></Image>
+                                           VerticalOptions="CenterAndExpand" />
                                     <StackLayout Grid.Column="1">
                                         <Label FontSize="20"
                                                TextColor="Black"
                                                FontAttributes="Bold"
-                                               Text="{Binding nombre}"></Label>
+                                               Text="{Binding nombre}" />
                                         <Label FontSize="13"
                                                TextColor="Black"
-                                               Text="{Binding precio}"></Label>
+                                               Text="{Binding precio}" />
                                         <Label FontSize="13"
                                                TextColor="Black"
-                                               Text="{Binding stock}"></Label>
+                                               Text="{Binding stock}" />
                                     </StackLayout>
                                 </Grid>
                             </StackLayout>
@@ -214,18 +201,33 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <StackLayout>
-                <ImageButton Source="https://i.postimg.cc/cHfrwbZQ/7245845.png"
-                             HorizontalOptions="CenterAndExpand"
-                             CornerRadius="20"
+            <!-- Floating action button -->
+            <Frame Grid.Row="1"
+                   HeightRequest="70"
+                   WidthRequest="70"
+                   CornerRadius="40"
+                   Padding="0"
+                   HorizontalOptions="End"
+                   VerticalOptions="End"
+                   Margin="0,0,20,20"
+                   HasShadow="True"
+                   BorderColor="Black"
+                   BackgroundColor="#007FFF">
+                <ImageButton Source="https://i.postimg.cc/pLCN47SG/shoppingbagplus.png"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
                              Aspect="AspectFit"
-                             HeightRequest="90"
-                             Margin="0,0,0,0"
-                             BackgroundColor="Red"
+                             HeightRequest="30"
+                             WidthRequest="30"
+                             BackgroundColor="Transparent"
                              Clicked="Button_Clicked_1" />
-            </StackLayout>
-        </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage>
+    
+    
+    
+    
     <ContentPage Title="Ventas"
                  IconImageSource="https://i.postimg.cc/SRTrP0B6/report-analytics.png"></ContentPage>
     <ContentPage IconImageSource="https://i.postimg.cc/7Pmmh755/brand-visa.png"
