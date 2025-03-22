@@ -15,18 +15,21 @@ namespace AppMovil1260061.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
             {
                 Window.DecorView.SystemUiVisibility = (StatusBarVisibility)(
-                    SystemUiFlags.LayoutStable | SystemUiFlags.LayoutFullscreen
+                    SystemUiFlags.LayoutStable
                 );
-                Window.SetStatusBarColor(Android.Graphics.Color.Transparent);
-            }
+                Window.SetStatusBarColor(new Android.Graphics.Color(0, 38, 90)); // #00265A
 
+                // Ensure status bar icons remain white for visibility
+                if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+                {
+                    Window.DecorView.SystemUiVisibility &= ~(StatusBarVisibility)SystemUiFlags.LightStatusBar;
+                }
+            }
             UserDialogs.Init(this);
             LoadApplication(new App());
         }

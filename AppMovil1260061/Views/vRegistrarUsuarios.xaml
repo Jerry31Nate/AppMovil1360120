@@ -15,7 +15,7 @@
         </LinearGradientBrush>
     </ContentPage.Background>
     <StackLayout VerticalOptions="CenterAndExpand">
-        <Frame Margin="20,60,20,0"
+        <Frame Margin="20,20,20,0"
                CornerRadius="20"
                BorderColor="#35FFFFFF">
             <Frame.Background>

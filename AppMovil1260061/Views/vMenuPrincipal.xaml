@@ -6,43 +6,56 @@
             SelectedTabColor="#007FFF"
             BackgroundColor="#F8F8FF"
             BarBackgroundColor="White"
+            UnselectedTabColor="Black"
             BarTextColor="Black"
             >
     <!--Pages can be added as references or inline-->
-    <ContentPage Title="Perfil"
+    <ContentPage xmlns:controls="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                 Title="Perfil"
                  IconImageSource="https://i.postimg.cc/8PY4BSBD/user.png">
-        
         <StackLayout HorizontalOptions="CenterAndExpand"
                      VerticalOptions="CenterAndExpand"
                      Padding="20">
-            <!-- Imagen y Nombre -->
-            <Frame BackgroundColor="Transparent"
-                   VerticalOptions="CenterAndExpand"
-                   HasShadow="False"
-                   Margin="0,10,0,0"
-                   Padding="0">
+            <!-- Contenedor para imagen y nombre con solo las esquinas inferiores redondeadas -->
+            <controls:PancakeView BackgroundColor="#00265A"
+                                  Padding="29"
+                                  CornerRadius="0,0,20,20"
+                                  Margin="-20,-20,-20,0">
                 <StackLayout HorizontalOptions="Center">
-                    <Image Source="https://i.postimg.cc/RF3wXP78/hd-man-user-illustration-icon-transparent-png-701751694974843ybexneueic-removebg-preview.png"
-                           Aspect="AspectFit"
-                           HeightRequest="220"
-                           WidthRequest="220"
-                           HorizontalOptions="Center" />
+                    <!-- Foto de perfil circular -->
+                    <Grid HorizontalOptions="Center"
+                          VerticalOptions="Center"
+                          WidthRequest="250"
+                          HeightRequest="250">
+                        <Frame CornerRadius="125"
+                               IsClippedToBounds="True"
+                               HasShadow="True"
+                               BackgroundColor="White"
+                               Padding="0"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand">
+                            <Image Source="https://i.postimg.cc/rmSkpmmj/image.png"
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalOptions="FillAndExpand" />
+                        </Frame>
+                    </Grid>
+                    <!-- Nombre debajo de la foto -->
                     <Label Text="{Binding LblNombreCompleto}"
                            FontSize="25"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center"
-                           TextColor="Black"
+                           TextColor="White"
                            Margin="0,10,0,5" />
                 </StackLayout>
-            </Frame>
+            </controls:PancakeView>
             <!-- Datos del Usuario -->
             <Frame CornerRadius="20"
                    Padding="30"
                    HasShadow="True"
-                   BackgroundColor="#F2F7FC"
+                   BackgroundColor="#E6EEF6"
                    Margin="0,30,0,0"
                    HorizontalOptions="Center">
-                
                 <StackLayout>
                     <Grid ColumnDefinitions="Auto, *"
                           RowDefinitions="Auto, Auto, Auto, Auto"
@@ -119,8 +132,9 @@
                     <Grid ColumnDefinitions="*,*"
                           Margin="0,20,0,0">
                         <Button Text="EDIT"
-                                BackgroundColor="#004B93"
+                                BackgroundColor="#00265A"
                                 TextColor="White"
+                                FontAttributes="Bold"
                                 CornerRadius="20"
                                 HeightRequest="45"
                                 HorizontalOptions="FillAndExpand"
@@ -128,6 +142,7 @@
                         <Button Text="LOG OUT"
                                 BackgroundColor="#ED1D23"
                                 TextColor="White"
+                                FontAttributes="Bold"
                                 CornerRadius="20"
                                 HeightRequest="45"
                                 HorizontalOptions="FillAndExpand"
@@ -138,6 +153,8 @@
             </Frame>
         </StackLayout>
     </ContentPage>
+    
+    
     <ContentPage Title="Productos"
                  IconImageSource="https://i.postimg.cc/wTMFmvN0/building-store.png">
       
@@ -147,21 +164,25 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <!-- Search Frame at the top -->
-            <Frame Grid.Row="0"
-                   Margin="10,50,10,10"
-                   CornerRadius="20"
-                   BorderColor="Black"  
-                   HasShadow="True"
-                   HeightRequest="30"
-                   Padding="10">
-                <Image Source="https://i.postimg.cc/NfZFCtM1/search.png"
-                       HorizontalOptions="EndAndExpand" />
-            </Frame>
+            <StackLayout BackgroundColor="#00265A">
+                <Frame Grid.Row="0"
+                       Margin="15,5,15,20"
+                       CornerRadius="20"
+                       BackgroundColor="#F2F7FC"
+                       HasShadow="True"
+                       HeightRequest="25">
+                    <SearchBar Placeholder="Search"
+                               PlaceholderColor="#00265A"
+                               HeightRequest="25"
+                               Margin="5,0,5,0"
+                               BackgroundColor="Transparent"
+                               CancelButtonColor="#007FFF" />
+                </Frame>
+            </StackLayout>
             <!-- CollectionView for products -->
             <CollectionView Grid.Row="1"
                             ItemsSource="{Binding Listaproductos}"
-                            Margin="10">
+                            Margin="15,0,15,0">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
                                      Span="1"
@@ -200,6 +221,10 @@
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+                <CollectionView.Footer>
+                    <BoxView HeightRequest="5"
+                             BackgroundColor="Transparent" />
+                </CollectionView.Footer>
             </CollectionView>
             <!-- Floating action button -->
             <Frame Grid.Row="1"
@@ -210,8 +235,7 @@
                    HorizontalOptions="End"
                    VerticalOptions="End"
                    Margin="0,0,20,20"
-                   HasShadow="True"
-                   BorderColor="Black"
+                   HasShadow="True"    
                    BackgroundColor="#007FFF">
                 <ImageButton Source="https://i.postimg.cc/pLCN47SG/shoppingbagplus.png"
                              HorizontalOptions="Center"

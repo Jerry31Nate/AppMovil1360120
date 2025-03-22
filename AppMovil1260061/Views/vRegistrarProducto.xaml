@@ -17,93 +17,80 @@
     <StackLayout VerticalOptions="CenterAndExpand">
         <Frame Margin="20"
                CornerRadius="20"
-               BorderColor="#35FFFFFF"
+               BackgroundColor="#F2F7FC"
                HasShadow="True">
-            <Frame.Background>
-                <LinearGradientBrush StartPoint="0,0"
-                                     EndPoint="1,1">
-                    <!-- Inicio con un blanco translúcido -->
-                    <GradientStop Color="#12FFFFFF"
-                                  Offset="0.0" />
-                    <!-- A 10% del recorrido, más transparente -->
-                    <GradientStop Color="#45FFFFFF"
-                                  Offset="0.2" />
-                    <!-- Resto del fondo, completamente transparente -->
-                    <GradientStop Color="#19FFFFFF"
-                                  Offset="1.5" />
-                </LinearGradientBrush>
-            </Frame.Background>
+           
             <StackLayout Spacing="15"
                          Margin="0,30,0,0">
                 <Label Text="Register Product"
                        FontSize="35"
                        FontAttributes="Bold"
-                       TextColor="White"
+                       TextColor="Black"
                        HorizontalTextAlignment="Center"
                        Margin="0,0,0,20"></Label>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/6682/6682701.png"></Image>
+                    <Image Source="https://i.postimg.cc/NFWxFgzs/box.png"></Image>
                     <Entry Placeholder="Enter name Product"
-                           PlaceholderColor="WhiteSmoke"
-                           TextColor="White"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
                            Grid.Column="1"
                            Text="{Binding Txtnombre}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/527/527489.png"></Image>
+                    <Image Source="https://i.postimg.cc/FsLZqLY7/currency-dollar.png"></Image>
                     <Entry Placeholder="Enter Price"
-                           PlaceholderColor="WhiteSmoke"
-                           TextColor="white"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
                            Keyboard="Numeric"
                            Grid.Column="1"
                            Text="{Binding Txtprecio}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://images.vexels.com/media/users/3/205069/isolated/preview/f207045d96c258fed664305f0ac2c5bd-icono-de-auricular-de-telefono-azul.png"></Image>
+                    <Image Source="https://i.postimg.cc/x1VRS1mg/calendar.png"></Image>
                     <Entry Placeholder="Enter Date Expire"
-                           PlaceholderColor="WhiteSmoke"
-                           TextColor="White"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
                            Grid.Column="1"
                            Text="{Binding Txtfechavencimiento}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://cdn-icons-png.flaticon.com/512/8344/8344917.png"></Image>
+                    <Image Source="https://i.postimg.cc/0y9VwNNj/stack-2.png"></Image>
                     <Entry Placeholder="Enter Stock"
-                           PlaceholderColor="WhiteSmoke"
-                           TextColor="White"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
                            Keyboard="Numeric"
                            Grid.Column="1"
                            Text="{Binding Txtstock}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454731_640.png"></Image>
+                    <Image Source="https://i.postimg.cc/mD1jszmX/category.png"></Image>
                     <Entry Placeholder="Enter Category"
-                           PlaceholderColor="WhiteSmoke"
-                           TextColor="White"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
                            Keyboard="Email"
                            Grid.Column="1"
                            Text="{Binding Txtcategoria}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Password.svg/1024px-Password.svg.png"></Image>
+                    <Image Source="https://i.postimg.cc/QxJbhrq3/tir.png"></Image>
                     <Entry Placeholder="Enter Providers"
-                           PlaceholderColor="WhiteSmoke"
-                           TextColor="White"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
                            Grid.Column="1"
                            Text="{Binding Txtproveedor}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,10">
-                    <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Password.svg/1024px-Password.svg.png"></Image>
+                    <Image Source="https://i.postimg.cc/NjNk27VC/photo-circle.png"></Image>
                     <Entry Placeholder="Enter Icon"
-                           PlaceholderColor="WhiteSmoke"
-                           TextColor="White"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
                            Grid.Column="1"
                            Text="{Binding Txticon}"></Entry>
                 </Grid>
@@ -111,7 +98,7 @@
                       RowDefinitions="*"
                       ColumnSpacing="15">
                     <Button Text="Register"
-                            BackgroundColor="#2E3292"
+                            BackgroundColor="#00265A"
                             TextColor="White"
                             CornerRadius="20"
                             FontSize="16"
@@ -120,7 +107,7 @@
                             Grid.Column="0"
                             Grid.Row="0"
                             Command="{Binding cmdInsertarProducto}"></Button>
-                    <Button Text="EXIT"
+                    <Button Text="back"
                             Grid.Column="1"
                             Grid.Row="0"
                             BackgroundColor="#ED1D23"

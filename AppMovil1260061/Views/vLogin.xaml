@@ -14,105 +14,103 @@
                           Offset="1.0" />
         </LinearGradientBrush>
     </ContentPage.Background>
-    <ScrollView>
-        <StackLayout Padding="20">
-            <Image Source="https://i.postimg.cc/tg2cvj8D/621f8ba5654abf384c30d624.png"
-                   HeightRequest="130"
-                   WidthRequest="130"
-                   Aspect="AspectFit"
-                   HorizontalOptions="CenterAndExpand"
-                   Margin="0,165,0,10"/>
-            <Label Text="Refresh Your World"
-                   TextColor="WhiteSmoke"
-                   FontSize="20"
+    <StackLayout Padding="20">
+        <Image Source="https://i.postimg.cc/tg2cvj8D/621f8ba5654abf384c30d624.png"
+               HeightRequest="130"
+               WidthRequest="130"
+               Aspect="AspectFit"
+               HorizontalOptions="CenterAndExpand"
+               Margin="0,120,0,10" />
+        <Label Text="Refresh Your World"
+               TextColor="WhiteSmoke"
+               FontSize="20"
+               HorizontalOptions="Center"
+               Margin="0,0,0,40" />
+        <Grid>
+            <Frame CornerRadius="20"
+                   Margin="0,45,0,0"
+                   Padding="25"
+                   HasShadow="True"
+                   BorderColor="#35FFFFFF"
                    HorizontalOptions="Center"
-                   Margin="0,0,0,40" />
-            <Grid>
-                <Frame CornerRadius="20"
-                       Margin="0,45,0,0"
-                       Padding="25"
-                       HasShadow="True"
-                       BorderColor="#35FFFFFF"
-                       HorizontalOptions="Center"
-                       WidthRequest="320">
-                    <Frame.Background>
-                        <LinearGradientBrush StartPoint="0,0"
-                                             EndPoint="1,1">
-                            <GradientStop Color="#12FFFFFF"
-                                          Offset="0.0" />
-                            <GradientStop Color="#45FFFFFF"
-                                          Offset="0.2" />
-                            <GradientStop Color="#19FFFFFF"
-                                          Offset="1.5" />
-                        </LinearGradientBrush>
-                    </Frame.Background>
-                    <StackLayout Spacing="20">
-                        <Label Text="Welcome"
-                               FontSize="50"
-                               FontAttributes="Bold"
+                   WidthRequest="320">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="1,1">
+                        <GradientStop Color="#12FFFFFF"
+                                      Offset="0.0" />
+                        <GradientStop Color="#45FFFFFF"
+                                      Offset="0.2" />
+                        <GradientStop Color="#19FFFFFF"
+                                      Offset="1.5" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout Spacing="20">
+                    <Label Text="Welcome"
+                           FontSize="50"
+                           FontAttributes="Bold"
+                           TextColor="WhiteSmoke"
+                           HorizontalOptions="Center" />
+                    <StackLayout Spacing="15">
+                        <Entry Placeholder="Enter your Email"
+                               PlaceholderColor="WhiteSmoke"
+                               BackgroundColor="Transparent"
                                TextColor="WhiteSmoke"
-                               HorizontalOptions="Center" />
-                        <StackLayout Spacing="15">
-                            <Entry Placeholder="Enter your Email"
-                                   PlaceholderColor="WhiteSmoke"
-                                   BackgroundColor="Transparent"
-                                   TextColor="WhiteSmoke"
-                                   Text="{Binding TxtEmail}" />
-                            <Entry Placeholder="Enter your password"
-                                   PlaceholderColor="WhiteSmoke"
-                                   IsPassword="True"
-                                   BackgroundColor="Transparent"
-                                   TextColor="#001C38"
-                                   Text="{Binding TxtPassword}" />
-                        </StackLayout>
-                        <Grid ColumnDefinitions="*,*"
-                              ColumnSpacing="15"
-                              HorizontalOptions="CenterAndExpand">
-                            <Button Text="Login"
-                                    BackgroundColor="#001C38"
-                                    TextColor="White"
-                                    CornerRadius="20"
-                                    FontSize="16"
-                                    FontAttributes="Bold"
-                                    HeightRequest="45"
-                                    Grid.Column="1"
-                                    Command="{Binding LoginComando}" />
-                            <Button Text="Exit"
-                                    BackgroundColor="White"
-                                    TextColor="Black"
-                                    CornerRadius="20"
-                                    FontSize="16"
-                                    FontAttributes="Bold"
-                                    HeightRequest="45"></Button>
-                        </Grid>
-                        <StackLayout Spacing="15"
-                                     HorizontalOptions="Center">
-                            <Label Text="You don't have an account? Register here."
-                                   TextColor="White"
-                                   FontSize="14"
-                                   HorizontalOptions="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
-                                </Label.GestureRecognizers>
-                            </Label>
-                            <Label Text="Forgot your password?"
-                                   TextColor="#001C38"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   HorizontalOptions="Center">
-                                <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                                </Label.GestureRecognizers>
-                            </Label>
-                        </StackLayout>
+                               Text="{Binding TxtEmail}" />
+                        <Entry Placeholder="Enter your password"
+                               PlaceholderColor="WhiteSmoke"
+                               IsPassword="True"
+                               BackgroundColor="Transparent"
+                               TextColor="#001C38"
+                               Text="{Binding TxtPassword}" />
                     </StackLayout>
-                </Frame>
-            </Grid>
-            <Label Text="© 2025 PepsiCo. All rights reserved."
-                   FontSize="12"
-                   TextColor="WhiteSmoke"
-                   HorizontalTextAlignment="Center"
-                   Margin="0,10,0,0" />
-        </StackLayout>
-    </ScrollView>
+                    <Grid ColumnDefinitions="*,*"
+                          ColumnSpacing="15"
+                          HorizontalOptions="CenterAndExpand">
+                        <Button Text="Login"
+                                BackgroundColor="#ED1D23"
+                                TextColor="White"
+                                CornerRadius="20"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                HeightRequest="45"
+                                Grid.Column="1"
+                                Command="{Binding LoginComando}" />
+                        <Button Text="Exit"
+                                BackgroundColor="#00265A"
+                                TextColor="White"
+                                CornerRadius="20"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                HeightRequest="45"></Button>
+                    </Grid>
+                    <StackLayout Spacing="15"
+                                 HorizontalOptions="Center">
+                        <Label Text="You don't have an account? Register here."
+                               TextColor="White"
+                               FontSize="14"
+                               HorizontalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Text="Forgot your password?"
+                               TextColor="#001C38"
+                               FontAttributes="Bold"
+                               FontSize="18"
+                               HorizontalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </Grid>
+        <Label Text="© 2025 PepsiCo. All rights reserved."
+               FontSize="12"
+               TextColor="WhiteSmoke"
+               HorizontalTextAlignment="Center"
+               Margin="0,10,0,0" />
+    </StackLayout>
 </ContentPage>
