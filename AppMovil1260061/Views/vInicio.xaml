@@ -35,8 +35,8 @@
             <!-- Eslogan grande alineado a la izquierda -->
             <Label Grid.Column="0"
                    Text="LIVE&#10;FOR&#10;NOW"
-                   FontSize="85"
-                   FontAttributes="Bold"
+                   FontSize="80"
+                   FontFamily="Ne"
                    CharacterSpacing="1"
                    HorizontalTextAlignment="Start"
                    VerticalTextAlignment="Center"

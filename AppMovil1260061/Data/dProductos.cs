@@ -44,5 +44,22 @@ namespace AppMovil1260061.Data
                     idproducto = item.Key
                 }).ToList();
         }
+
+        public async Task<List<mProductos>> BuscarProducto(string nombre)
+        {
+            return (await ConexionFirebase.clientefirebase
+                .Child("Productos").OnceAsync<mProductos>())
+                .Select(item => new mProductos
+                {
+                    categoria = item.Object.categoria,
+                    fechavencimiento = item.Object.fechavencimiento,
+                    icono = item.Object.icono,
+                    nombre = item.Object.nombre,
+                    precio = item.Object.precio,
+                    proveedor = item.Object.proveedor,
+                    stock = item.Object.stock,
+                    idproducto = item.Key
+                }).Where(x => x.nombre.ToLower().Contains(nombre.ToLower())).ToList();
+        }
     }
 }

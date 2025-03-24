@@ -56,13 +56,13 @@
                                PlaceholderColor="WhiteSmoke"
                                BackgroundColor="Transparent"
                                TextColor="WhiteSmoke"
-                               Text="{Binding TxtEmail}" />
+                               Text="{Binding TxtEmail}"/>
                         <Entry Placeholder="Enter your password"
                                PlaceholderColor="WhiteSmoke"
                                IsPassword="True"
                                BackgroundColor="Transparent"
                                TextColor="#001C38"
-                               Text="{Binding TxtPassword}" />
+                               Text="{Binding TxtPassword}"/>
                     </StackLayout>
                     <Grid ColumnDefinitions="*,*"
                           ColumnSpacing="15"

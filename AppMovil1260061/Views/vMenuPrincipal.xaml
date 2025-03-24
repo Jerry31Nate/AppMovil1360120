@@ -34,7 +34,7 @@
                                Padding="0"
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand">
-                            <Image Source="https://i.postimg.cc/rmSkpmmj/image.png"
+                            <Image Source="{Binding LblImagen}"
                                    Aspect="AspectFill"
                                    HorizontalOptions="FillAndExpand"
                                    VerticalOptions="FillAndExpand" />
@@ -174,6 +174,7 @@
                     <SearchBar Placeholder="Search"
                                PlaceholderColor="#00265A"
                                HeightRequest="25"
+                               Text="{Binding TxtBuscarProducto, Mode=TwoWay}"
                                Margin="5,0,5,0"
                                BackgroundColor="Transparent"
                                CancelButtonColor="#007FFF" />
@@ -181,7 +182,7 @@
             </StackLayout>
             <!-- CollectionView for products -->
             <CollectionView Grid.Row="1"
-                            ItemsSource="{Binding Listaproductos}"
+                            ItemsSource="{Binding ListaProductos}"
                             Margin="15,0,15,0">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
@@ -193,28 +194,33 @@
                         <Frame CornerRadius="20"
                                Margin="0,0,0,10"
                                BackgroundColor="#E6EEF6"
-                               Padding="25">
+                               Padding="10">
                             
                             <StackLayout Margin="0,0,0,10">
-                                <Grid ColumnDefinitions="10"
-                                      RowDefinitions="50">
-                                    <Image Source="{Binding Icono}"
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding icono}"
                                            Aspect="AspectFill"
-                                           HeightRequest="100"
+                                           HeightRequest="150"
                                            WidthRequest="100"
                                            HorizontalOptions="CenterAndExpand"
                                            VerticalOptions="CenterAndExpand" />
-                                    <StackLayout Grid.Column="1">
+                                    <StackLayout Grid.Column="1"
+                                                 Padding="10,0,0,0"
+                                                 VerticalOptions="Center">
                                         <Label FontSize="20"
                                                TextColor="Black"
                                                FontAttributes="Bold"
                                                Text="{Binding nombre}" />
-                                        <Label FontSize="13"
+                                        <Label FontSize="15"
                                                TextColor="Black"
-                                               Text="{Binding precio}" />
-                                        <Label FontSize="13"
+                                               Text="{Binding precio, StringFormat='Precio: S/.{0}'}" />
+                                        <Label FontSize="15"
                                                TextColor="Black"
-                                               Text="{Binding stock}" />
+                                               Text="{Binding stock, StringFormat='Stock: {0} unid'}" />
                                     </StackLayout>
                                 </Grid>
                             </StackLayout>
@@ -248,14 +254,110 @@
             </Frame>
         </Grid>
     </ContentPage>
-    
-    
+    <ContentPage IconImageSource="https://i.postimg.cc/J04xK727/users.png"
+                 Title="Clientes">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="#00265A">
+                <Frame Grid.Row="0"
+                       Margin="15,5,15,20"
+                       CornerRadius="20"
+                       BackgroundColor="#F2F7FC"
+                       HasShadow="True"
+                       HeightRequest="25">
+                    <SearchBar Placeholder="Search"
+                               PlaceholderColor="#00265A"
+                               HeightRequest="25"
+                               Text="{Binding TxtBuscarCliente, Mode=TwoWay}"
+                              
+                               Margin="5,0,5,0"
+                               BackgroundColor="Transparent"
+                               CancelButtonColor="#007FFF" />
+                </Frame>
+            </StackLayout>
+            <!-- CollectionView for products -->
+            <CollectionView Grid.Row="1"
+                            ItemsSource="{Binding ListaClientes}"
+                            Margin="15,0,15,0">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="1"
+                                     VerticalItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="20"
+                               Margin="0,0,0,10"
+                               BackgroundColor="#E6EEF6"
+                               Padding="20">
+                            <StackLayout Margin="0,0,0,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding fotocasa}"
+                                           Aspect="AspectFit"
+                                           HeightRequest="150"
+                                           WidthRequest="100"
+                                           HorizontalOptions="CenterAndExpand"
+                                           VerticalOptions="CenterAndExpand" />
+                                    <StackLayout Grid.Column="1"
+                                                 Margin="10,0,0,0">
+                                        <Label FontSize="30"
+                                               TextColor="Black"
+                                               FontAttributes="Bold"
+                                               Text="{Binding apellidosnombre}" />
+                                        <Label FontSize="15"
+                                               TextColor="Black"
+                                               Text="{Binding telefono, StringFormat='Phone: {0}'}"/>
+                                        <Label FontSize="15"
+                                               TextColor="Black"
+                                               Text="{Binding ciudad, StringFormat='City: {0}'}" />
+                                        <Label FontSize="15"
+                                               TextColor="Black"
+                                               Text="{Binding direccion, StringFormat='Address: {0}'}" />
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.Footer>
+                    <BoxView HeightRequest="5"
+                             BackgroundColor="Transparent" />
+                </CollectionView.Footer>
+            </CollectionView>
+            <!-- Floating action button -->
+            <Frame Grid.Row="1"
+                   HeightRequest="70"
+                   WidthRequest="70"
+                   CornerRadius="40"
+                   Padding="0"
+                   HorizontalOptions="End"
+                   VerticalOptions="End"
+                   Margin="0,0,20,20"
+                   HasShadow="True"
+                   BackgroundColor="#007FFF">
+                <ImageButton Source="userup.png"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Aspect="AspectFit"
+                             HeightRequest="30"
+                             WidthRequest="30"
+                             BackgroundColor="Transparent"
+                             Clicked="ImageButton_Clicked" />
+            </Frame>
+        </Grid>
+    </ContentPage>
     
     
     <ContentPage Title="Ventas"
                  IconImageSource="https://i.postimg.cc/SRTrP0B6/report-analytics.png"></ContentPage>
     <ContentPage IconImageSource="https://i.postimg.cc/7Pmmh755/brand-visa.png"
                  Title="Pagos" />
-    <ContentPage IconImageSource="https://i.postimg.cc/J04xK727/users.png"
-                 Title="Clientes" />
+   
 </TabbedPage> 

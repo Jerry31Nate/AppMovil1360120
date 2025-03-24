@@ -1,12 +1,12 @@
-﻿using AppMovil1260061.Connection;
-using AppMovil1260061.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using AppMovil1260061.Connection;
 using AppMovil1260061.Models;
+using AppMovil1260061.Data;
+using System.Threading.Tasks;
 using Firebase.Auth;
 using Newtonsoft.Json;
-using System;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -19,18 +19,62 @@ namespace AppMovil1260061.ViewModels
         string lblEmail;
         string lblTelefono;
         string lblUserName;
+        string idusuario;
         string lblImagen;
+
+        //Productos
+        string txtBuscarProducto;
+        List<mProductos> listaProductos;
+
+        //Clientes
+        string txtBuscarCliente;
+        List<mClientes> listaClientes;
         #endregion
 
-        #region Propiedades
+        #region Objetos
 
-        private ObservableCollection<mProductos> _listaproductos;
-        public ObservableCollection<mProductos> Listaproductos
+        //Productos
+        public List<mProductos> ListaProductos
         {
-            get { return _listaproductos; }
-            set { SetValue(ref _listaproductos, value); }
+            get { return listaProductos; }
+            set { SetValue(ref listaProductos, value);}
+        }
+        public string TxtBuscarProducto
+        {
+            get { return txtBuscarProducto; }
+            set
+            {
+                if (txtBuscarProducto != value)
+                {
+                    txtBuscarProducto = value;
+                    OnPropertyChanged();
+                    _ = BuscarProducto();
+                }
+            }
         }
 
+
+        //Clientes
+        public List<mClientes> ListaClientes
+        {
+            get { return listaClientes; }
+            set { SetValue(ref listaClientes, value); }
+        }
+        public string TxtBuscarCliente
+        {
+            get { return txtBuscarCliente; }
+            set
+            {
+                if (txtBuscarCliente != value)
+                {
+                    txtBuscarCliente = value;
+                    OnPropertyChanged(); // Notificar a la UI que la propiedad cambió
+                    _ = BuscarCliente(); // Llamar búsqueda en tiempo real (ignorar warning de async void)
+                }
+            }
+        }
+
+        //Usuario
         public string LblImagen
         {
             get { return lblImagen; }
@@ -60,19 +104,16 @@ namespace AppMovil1260061.ViewModels
 
         #region Procesos
 
-        private async Task ListarProductos()
+        public async Task ListarProductos()
         {
             var funcion = new dProductos();
-            var lista = await funcion.MostrarProductos();
+            ListaProductos = await funcion.MostrarProductos();
+        }
 
-            // Filtrar productos válidos (excluyendo el nodo "modelo")
-            var productosFiltrados = lista.Where(p => p.nombre != "-" && p.nombre != null).ToList();
-
-            // Actualizar la colección en el hilo principal para que se refleje en la UI
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                Listaproductos = new ObservableCollection<mProductos>(productosFiltrados);
-            });
+        public async Task ListarClientes()
+        {
+            var funcion = new dClientes();
+            ListaClientes = await funcion.MostrarClientes();
         }
 
         public async Task verDatosUsuario()
@@ -97,23 +138,45 @@ namespace AppMovil1260061.ViewModels
                 break;
             }
         }
+
+        public async Task BuscarProducto()
+        {
+            if (string.IsNullOrWhiteSpace(TxtBuscarProducto))
+            {
+                await ListarProductos(); // Si el texto está vacío, mostrar toda la lista
+                return;
+            }
+
+            var funcion = new dProductos();
+            ListaProductos = await funcion.BuscarProducto(TxtBuscarProducto);
+        }
+
+        public async Task BuscarCliente()
+        {
+            if (string.IsNullOrWhiteSpace(TxtBuscarCliente))
+            {
+                await ListarClientes(); // Si el texto está vacío, mostrar toda la lista
+                return;
+            }
+            var funcion = new dClientes();
+            ListaClientes = await funcion.BuscarClientes(TxtBuscarCliente);
+        }
+        #endregion
+
+        #region Comandos
+        public Command cmdBuscarProducto { get; }
+        public Command cmdBuscarCliente { get; }
+
         #endregion
 
         #region Constructor
         public vmMenuPrincipal()
         {
-            Listaproductos = new ObservableCollection<mProductos>();
+            cmdBuscarProducto = new Command(async () => await BuscarProducto());
+            cmdBuscarCliente = new Command(async () => await BuscarCliente());
             verDatosUsuario();
-            ListarProductos(); // Carga la lista inicial
-
-            // Suscribirse al mensaje de inserción de producto
-            MessagingCenter.Subscribe<vmProductos, mProductos>(this, "ProductoInsertado", async (sender, producto) =>
-            {
-                // Recargar la lista completa o agregar directamente el nuevo producto
-                await ListarProductos();
-                // O también se puede usar:
-                // Device.BeginInvokeOnMainThread(() => Listaproductos.Add(producto));
-            });
+            ListarProductos();
+            ListarClientes();
         }
         #endregion
     }

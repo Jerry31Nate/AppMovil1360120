@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovil1260061.Views.vRegistrarProducto"
+             x:Class="AppMovil1260061.Views.vRegistrarClientes"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0"
@@ -19,10 +19,9 @@
                CornerRadius="20"
                BackgroundColor="#F2F7FC"
                HasShadow="True">
-           
             <StackLayout Spacing="15"
                          Margin="0,30,0,0">
-                <Label Text="Register Product"
+                <Label Text="Register Client"
                        FontSize="35"
                        FontAttributes="Bold"
                        TextColor="Black"
@@ -30,69 +29,77 @@
                        Margin="0,0,0,20"></Label>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://i.postimg.cc/NFWxFgzs/box.png"></Image>
-                    <Entry Placeholder="Enter name Product"
+                    <Image Source="id.png"></Image>
+                    <Entry Placeholder="Enter Number DNI"
                            PlaceholderColor="Gray"
                            TextColor="Black"
                            Grid.Column="1"
-                           Text="{Binding Txtnombre}"></Entry>
+                           Text="{Binding Txtdni}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://i.postimg.cc/FsLZqLY7/currency-dollar.png"></Image>
-                    <Entry Placeholder="Enter Price"
-                           PlaceholderColor="Gray"
-                           TextColor="Black"
-                           Keyboard="Numeric"
-                           Grid.Column="1"
-                           Text="{Binding Txtprecio}"></Entry>
-                </Grid>
-                <Grid ColumnDefinitions="40,*"
-                      Margin="10,0,0,0">
-                    <Image Source="https://i.postimg.cc/x1VRS1mg/calendar.png"></Image>
-                    <Entry Placeholder="Enter Date Expire"
+                    <Image Source="label2.png"></Image>
+                    <Entry Placeholder="Enter Full Name"
                            PlaceholderColor="Gray"
                            TextColor="Black"
                            Grid.Column="1"
-                           Text="{Binding Txtfechavencimiento}"></Entry>
+                           Text="{Binding Txtapellidosnombre}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://i.postimg.cc/0y9VwNNj/stack-2.png"></Image>
-                    <Entry Placeholder="Enter Stock"
+                    <Image Source="devicemobile.png"></Image>
+                    <Entry Placeholder="Enter Number Phone"
                            PlaceholderColor="Gray"
                            TextColor="Black"
-                           Keyboard="Numeric"
+                           Keyboard="Telephone"
                            Grid.Column="1"
-                           Text="{Binding Txtstock}"></Entry>
+                           Text="{Binding Txttelefono}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://i.postimg.cc/mD1jszmX/category.png"></Image>
-                    <Entry Placeholder="Enter Category"
+                    <Image Source="location.png"></Image>
+                    <Entry Placeholder="Enter Adress"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           Grid.Column="1"
+                           Text="{Binding Txtdireccion}"></Entry>
+                </Grid>
+                <Grid ColumnDefinitions="40,*"
+                      Margin="10,0,0,0">
+                    <Image Source="city.png"></Image>
+                    <Entry Placeholder="Enter City"
+                           PlaceholderColor="Gray"
+                           TextColor="Black"
+                           Grid.Column="1"
+                           Text="{Binding Txtciudad}"></Entry>
+                </Grid>
+                <Grid ColumnDefinitions="40,*"
+                      Margin="10,0,0,0">
+                    <Image Source="mail2.png"></Image>
+                    <Entry Placeholder="Enter E-mail"
                            PlaceholderColor="Gray"
                            TextColor="Black"
                            Keyboard="Email"
                            Grid.Column="1"
-                           Text="{Binding Txtcategoria}"></Entry>
+                           Text="{Binding Txtcorreo}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,0">
-                    <Image Source="https://i.postimg.cc/QxJbhrq3/tir.png"></Image>
-                    <Entry Placeholder="Enter Providers"
+                    <Image Source="briefcase.png"></Image>
+                    <Entry Placeholder="Enter Ocupation"
                            PlaceholderColor="Gray"
                            TextColor="Black"
                            Grid.Column="1"
-                           Text="{Binding Txtproveedor}"></Entry>
+                           Text="{Binding Txtocupacion}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="40,*"
                       Margin="10,0,0,10">
                     <Image Source="https://i.postimg.cc/NjNk27VC/photo-circle.png"></Image>
-                    <Entry Placeholder="Enter Icon"
+                    <Entry Placeholder="Enter Picture"
                            PlaceholderColor="Gray"
                            TextColor="Black"
                            Grid.Column="1"
-                           Text="{Binding Txticono}"></Entry>
+                           Text="{Binding Txtfotocasa}"></Entry>
                 </Grid>
                 <Grid ColumnDefinitions="*,*"
                       RowDefinitions="*"
@@ -106,7 +113,7 @@
                             HeightRequest="45"
                             Grid.Column="0"
                             Grid.Row="0"
-                            Command="{Binding cmdInsertarProducto}"></Button>
+                            Command="{Binding cmdInsertarCliente}"></Button>
                     <Button Text="back"
                             Grid.Column="1"
                             Grid.Row="0"

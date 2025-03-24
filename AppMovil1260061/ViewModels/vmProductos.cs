@@ -23,7 +23,7 @@ namespace AppMovil1260061.ViewModels
         public string txtstock;
         #endregion
 
-        #region Propiedades
+        #region Objetos
         public string Txtnombre
         {
             get { return txtnombre; }
@@ -63,36 +63,34 @@ namespace AppMovil1260061.ViewModels
 
         #region Procesos
 
-        // Declaración del evento para notificar la inserción del producto
-        public event Action<mProductos> OnProductoInsertado;
-
+        
         private async Task InsertarProducto()
         {
             var funcion = new dProductos();
-            var parametro = new mProductos
-            {
-                nombre = Txtnombre,
-                fechavencimiento = Txtfechavencimiento,
-                categoria = Txtcategoria,
-                precio = Txtprecio,
-                icono = Txticono,
-                proveedor = Txtproveedor,
-                stock = Txtstock
-            };
+            var parametro = new mProductos();
+            parametro.nombre = Txtnombre;
+            parametro.fechavencimiento = Txtfechavencimiento;
+            parametro.categoria = Txtcategoria;
+            parametro.precio = Txtprecio;
+            parametro.icono = Txticono;
+            parametro.proveedor = Txtproveedor;
+            parametro.stock = Txtstock;
 
             var estadofuncion = await funcion.InsertarProducto(parametro);
-            if (estadofuncion)
+            if (estadofuncion == true)
             {
                 UserDialogs.Instance.ShowLoading("Registering Product");
                 await Task.Delay(2000);
                 await DisplayAlert("Success", "Registered Product", "Accept");
                 UserDialogs.Instance.HideLoading();
 
-                // Ejecuta el evento en el hilo principal para actualizar la vista
-                Device.BeginInvokeOnMainThread(() =>
+                // 🔹 Actualizar la lista de productos
+                var vmPrincipal = DependencyService.Get<vmMenuPrincipal>();
+                if (vmPrincipal != null)
                 {
-                    MessagingCenter.Send(this, "ProductoInsertado", parametro);
-                });
+                    await vmPrincipal.ListarProductos();
+                }
+                              
             }
             else
             {

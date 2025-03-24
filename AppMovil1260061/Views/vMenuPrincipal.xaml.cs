@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.PlatformConfiguration;
+using AppMovil1260061.ViewModels;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using AppMovil1260061.ViewModels;
+using Firebase.Auth;
 
 
 namespace AppMovil1260061.Views
@@ -32,6 +33,11 @@ namespace AppMovil1260061.Views
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new vRegistrarProducto());
+        }
+
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new vRegistrarClientes());
         }
     }
 }
