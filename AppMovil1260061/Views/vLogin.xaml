@@ -3,30 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovil1260061.Views.vLogin"
              NavigationPage.HasNavigationBar="False">
+
+    <!-- Fondo degradado -->
     <ContentPage.Background>
-        <LinearGradientBrush StartPoint="0,0"
-                             EndPoint="0,1">
-            <GradientStop Color="#00265A"
-                          Offset="0.0" />
-            <GradientStop Color="#003F8F"
-                          Offset="0.5" />
-            <GradientStop Color="#0072CE"
-                          Offset="1.0" />
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#00265A" Offset="0.0" />
+            <GradientStop Color="#003F8F" Offset="0.5" />
+            <GradientStop Color="#0072CE" Offset="1.0" />
         </LinearGradientBrush>
     </ContentPage.Background>
-    <StackLayout Padding="20">
+
+    <!-- Grid con 4 filas para anclar cada sección -->
+    <Grid Padding="20"
+          RowDefinitions="Auto,Auto,*,Auto">
+
+        <!-- (Row 0) Imagen con margen grande arriba -->
         <Image Source="https://i.postimg.cc/tg2cvj8D/621f8ba5654abf384c30d624.png"
                HeightRequest="130"
                WidthRequest="130"
                Aspect="AspectFit"
-               HorizontalOptions="CenterAndExpand"
-               Margin="0,120,0,10" />
+               HorizontalOptions="Center"
+               Margin="0,120,0,10"
+               Grid.Row="0" />
+
+        <!-- (Row 1) Texto 'Refresh Your World' -->
         <Label Text="Refresh Your World"
                TextColor="WhiteSmoke"
                FontSize="20"
                HorizontalOptions="Center"
-               Margin="0,0,0,40" />
-        <Grid>
+               Margin="0,0,0,40"
+               Grid.Row="1" />
+
+        <!-- (Row 2) Centra verticalmente el Frame -->
+        <Grid Grid.Row="2" VerticalOptions="CenterAndExpand">
             <Frame CornerRadius="20"
                    Margin="0,45,0,0"
                    Padding="25"
@@ -34,29 +43,32 @@
                    BorderColor="#35FFFFFF"
                    HorizontalOptions="Center"
                    WidthRequest="320">
+
+                <!-- Fondo degradado del Frame -->
                 <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0"
-                                         EndPoint="1,1">
-                        <GradientStop Color="#12FFFFFF"
-                                      Offset="0.0" />
-                        <GradientStop Color="#45FFFFFF"
-                                      Offset="0.2" />
-                        <GradientStop Color="#19FFFFFF"
-                                      Offset="1.5" />
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#12FFFFFF" Offset="0.0" />
+                        <GradientStop Color="#45FFFFFF" Offset="0.2" />
+                        <GradientStop Color="#19FFFFFF" Offset="1.5" />
                     </LinearGradientBrush>
                 </Frame.Background>
+
+                <!-- Contenido del formulario -->
                 <StackLayout Spacing="20">
+
                     <Label Text="Welcome"
                            FontSize="50"
                            FontAttributes="Bold"
                            TextColor="WhiteSmoke"
                            HorizontalOptions="Center" />
+
                     <StackLayout Spacing="15">
                         <Entry Placeholder="Enter your Email"
                                PlaceholderColor="WhiteSmoke"
                                BackgroundColor="Transparent"
                                TextColor="WhiteSmoke"
                                Text="{Binding TxtEmail}"/>
+
                         <Entry Placeholder="Enter your password"
                                PlaceholderColor="WhiteSmoke"
                                IsPassword="True"
@@ -64,9 +76,23 @@
                                TextColor="#001C38"
                                Text="{Binding TxtPassword}"/>
                     </StackLayout>
+
+                    <!-- Botones en un Grid con 2 columnas -->
                     <Grid ColumnDefinitions="*,*"
                           ColumnSpacing="15"
                           HorizontalOptions="CenterAndExpand">
+
+                        <!-- Botón azul a la izquierda -->
+                        <Button Text="Exit"
+                                BackgroundColor="#00265A"
+                                TextColor="White"
+                                CornerRadius="20"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                HeightRequest="45"
+                                Grid.Column="0" />
+
+                        <!-- Botón rojo a la derecha -->
                         <Button Text="Login"
                                 BackgroundColor="#ED1D23"
                                 TextColor="White"
@@ -76,16 +102,9 @@
                                 HeightRequest="45"
                                 Grid.Column="1"
                                 Command="{Binding LoginComando}" />
-                        <Button Text="Exit"
-                                BackgroundColor="#00265A"
-                                TextColor="White"
-                                CornerRadius="20"
-                                FontSize="16"
-                                FontAttributes="Bold"
-                                HeightRequest="45"></Button>
                     </Grid>
-                    <StackLayout Spacing="15"
-                                 HorizontalOptions="Center">
+
+                    <StackLayout Spacing="15" HorizontalOptions="Center">
                         <Label Text="You don't have an account? Register here."
                                TextColor="White"
                                FontSize="14"
@@ -94,6 +113,7 @@
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
                             </Label.GestureRecognizers>
                         </Label>
+
                         <Label Text="Forgot your password?"
                                TextColor="#001C38"
                                FontAttributes="Bold"
@@ -104,13 +124,17 @@
                             </Label.GestureRecognizers>
                         </Label>
                     </StackLayout>
+
                 </StackLayout>
             </Frame>
         </Grid>
+
+        <!-- (Row 3) Texto de pie de página abajo -->
         <Label Text="© 2025 PepsiCo. All rights reserved."
                FontSize="12"
                TextColor="WhiteSmoke"
                HorizontalTextAlignment="Center"
-               Margin="0,10,0,0" />
-    </StackLayout>
+               Margin="0,10,0,0"
+               Grid.Row="3" />
+    </Grid>
 </ContentPage>
