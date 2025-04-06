@@ -34,7 +34,7 @@
                      VerticalOptions="CenterAndExpand"
                      Spacing="10">
             <!-- Logo de Pepsi ubicado al inicio del contenido -->
-            <Image Source="https://i.postimg.cc/tg2cvj8D/621f8ba5654abf384c30d624.png"
+            <Image Source="logooficial.png"
                    HeightRequest="130"
                    WidthRequest="130"
                    HorizontalOptions="Center"

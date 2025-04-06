@@ -27268,28 +27268,34 @@ namespace AppMovil1260061.Droid
 			public const int preference_list_divider_material = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
-			public const int roundedbg = 2131165340;
+			public const int report = 2131165340;
 			
 			// aapt resource value: 0x7F07009D
-			public const int roundedbgdark = 2131165341;
+			public const int roundedbg = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int shopping = 2131165342;
+			public const int roundedbgdark = 2131165342;
 			
 			// aapt resource value: 0x7F07009F
-			public const int splash_screen = 2131165343;
+			public const int shopping = 2131165343;
 			
 			// aapt resource value: 0x7F0700A0
-			public const int test_custom_background = 2131165344;
+			public const int splash_screen = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int tooltip_frame_dark = 2131165345;
+			public const int test_custom_background = 2131165345;
 			
 			// aapt resource value: 0x7F0700A2
-			public const int tooltip_frame_light = 2131165346;
+			public const int tooltip_frame_dark = 2131165346;
 			
 			// aapt resource value: 0x7F0700A3
-			public const int userup = 2131165347;
+			public const int tooltip_frame_light = 2131165347;
+			
+			// aapt resource value: 0x7F0700A4
+			public const int userup = 2131165348;
+			
+			// aapt resource value: 0x7F0700A5
+			public const int usuario = 2131165349;
 			
 			static Drawable()
 			{

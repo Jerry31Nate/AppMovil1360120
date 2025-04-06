@@ -39,5 +39,10 @@ namespace AppMovil1260061.Views
         {
             await Navigation.PushAsync(new vRegistrarClientes());
         }
+
+        private async void ImageButton_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new vRegistrarVentas());
+        }
     }
 }

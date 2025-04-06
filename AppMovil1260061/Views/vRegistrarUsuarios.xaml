@@ -33,7 +33,7 @@
                 </LinearGradientBrush>
             </Frame.Background>
             <StackLayout Spacing="10">
-                <Image Source="https://i.postimg.cc/tg2cvj8D/621f8ba5654abf384c30d624.png"
+                <Image Source="logooficial.png"
                        HeightRequest="130"
                        WidthRequest="130"
                        Margin="0,40,0,10"></Image>

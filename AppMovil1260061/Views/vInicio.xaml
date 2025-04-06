@@ -44,10 +44,10 @@
                    Margin="0,0,10,0" />
             <!-- Logo Pepsi alineado a la derecha -->
             <Image Grid.Column="1"
-                   Source="https://i.postimg.cc/tg2cvj8D/621f8ba5654abf384c30d624.png"
+                   Source="logooficial.png"
                    WidthRequest="200"
                    HeightRequest="200"
-                   Aspect="AspectFit"
+                   Aspect="AspectFill"
                    HorizontalOptions="End"
                    VerticalOptions="Center" />
         </Grid>

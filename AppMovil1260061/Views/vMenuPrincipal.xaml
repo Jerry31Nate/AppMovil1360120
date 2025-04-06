@@ -11,7 +11,7 @@
             >
     <!--Pages can be added as references or inline-->
     <ContentPage xmlns:controls="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-                 Title="Perfil"
+                 Title="Profile"
                  IconImageSource="https://i.postimg.cc/8PY4BSBD/user.png">
         <StackLayout HorizontalOptions="CenterAndExpand"
                      VerticalOptions="CenterAndExpand"
@@ -155,7 +155,7 @@
     </ContentPage>
     
     
-    <ContentPage Title="Productos"
+    <ContentPage Title="Products"
                  IconImageSource="https://i.postimg.cc/wTMFmvN0/building-store.png">
       
         <!-- Replace the main StackLayout with a Grid -->
@@ -256,7 +256,7 @@
     </ContentPage>
     
     <ContentPage IconImageSource="https://i.postimg.cc/J04xK727/users.png"
-                 Title="Clientes">
+                 Title="Clients">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -356,7 +356,7 @@
     </ContentPage>
     
     
-    <ContentPage Title="Ventas"
+    <ContentPage Title="Sales"
                  IconImageSource="https://i.postimg.cc/SRTrP0B6/report-analytics.png">
 
         <Grid>
@@ -450,11 +450,11 @@
                       HeightRequest="30"
                       WidthRequest="30"
                       BackgroundColor="Transparent"
-                      Clicked="Button_Clicked_1" />
+                      Clicked="ImageButton_Clicked_1" />
             </Frame>
         </Grid>
     </ContentPage>
-    <ContentPage IconImageSource="https://i.postimg.cc/7Pmmh755/brand-visa.png"
-                 Title="Pagos" />
+    <ContentPage IconImageSource="report.png"
+                 Title="Reports" />
    
 </TabbedPage> 
